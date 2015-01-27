@@ -1,0 +1,177 @@
+<html> 
+<head> 
+<title>Sign-Up</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" >
+
+$(document).ready(function() {
+$("#register").click(function() {
+var name = $("#name").val();
+var email = $("#email").val();
+var pass = $("#pass").val();
+var phone = $("#phone").val();
+var gender = $("#gender").val();
+var filter = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+if (name == '' || email == '' || pass == '' || phone == '' || gender == '' ) {
+alert("Please fill all fields...!!!!!!");
+return false;
+}else if(!filter.test(email))
+{
+alert("Please enter valid email...!!!!!");
+return false;
+} else if ((phone.length) <10) {
+alert("Your phone number should have atleast 10 digits...!!!!!");
+return false;
+} else if ((pass.length) < 8) {
+alert("Password should atleast be 8 characters in length...!!!!!!");
+return false;
+} 
+else if ($("#gender:checked").length == 0){
+	alert("Please select gender .. !!");
+	return false;
+}
+else {
+$.post("register.php", {
+
+}, function(data) {
+if (data == 'You have Successfully Registered.....') {
+$("form")[0].reset();
+}
+alert(data);
+});
+}
+});
+});
+
+</script>
+
+<style>
+#container
+{   width:100%;
+	height:100%;
+	background: #8779C2;
+	background:radial-gradient(#9f93ce,#6c609b);
+	
+}
+
+#header
+{
+	background: #252525;
+	width:100%;
+	height:60px;
+	margin:auto;
+}
+
+#left_header{
+   float:left;
+  padding-top:8px;
+  padding-bottom:8px;
+   padding-left:100px;
+   
+}
+
+#menu{
+	float:right;
+	padding-top:20px;
+   padding-right:100px;
+   font-family: Arial, Helvetica, sans-serif;
+	}
+#menu a{
+	color: #eee;
+	font-size: 20px;
+	}	
+
+#menu a:hover { background-color: #3399cc; }
+
+#content
+{
+	
+  margin-left: auto ;
+  margin-right: auto ;
+  padding-top:65px;
+  padding-bottom:100%;
+}
+
+h2
+{
+	color: #fff;
+	font-size: 200%;
+	margin: 0 0 .5em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h4
+{
+	color: #fff;
+	font-size: 100%;
+	margin: 0 0 .5em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+input#register
+{
+width:400px;
+background:#FFBD00;
+border:1px solid #ffcc00;
+padding:5px 10px 8px;
+cursor:pointer;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 5px;
+height:43px;
+}
+
+input:not([type]), input[type="text"] , input[type="email"] , input[type="password"]
+{ 
+    font-size: 12pt; 
+    font-family: Arial; 
+	width: 400px;
+	height:43px;
+}
+::-webkit-input-placeholder {padding-left:20px;font-size:10pt; }
+.asterisk_input:after {
+content:" *"; 
+color: #e32;
+position: absolute; 
+margin: 0px 0px 0px -20px; 
+font-size: xx-large; 
+padding: 7px 5px 0 0; }
+</style>
+
+
+ </head> 
+ <body>
+ <div id="container">
+ <div id="header">
+ <div id="left_header">
+ <img src="logo.png" height="45" width="180">
+ </div> <!--left header end -->
+ <div id="menu">
+ <a href="login.php" style="text-decoration: none" >LOGIN</a>
+ </div><!--menu header end -->
+ </div><!--header end -->
+ <div id="content" class="required">
+
+
+
+ <h2><center>Register Here</center><h2>
+ <form method="post" action="register.php">
+ <table border="0" align="center" cellspacing="10"> 
+ <tr> 
+ <td><input type="text" name="name" id="name" placeholder="Enter your name" required style="border:3px solid #7C70B8;">
+ </td> </tr>
+ <tr> <td> <input type="email" name="email" required id="email" placeholder="Enter your email" style="border:3px solid #7C70B8;"><span class="asterisk_input">  </span></td> </tr> 
+ <tr> <td><h4>Gender &nbsp;:&nbsp; &nbsp; &nbsp;&nbsp;<input type="radio" name="gender" id="gender" value="Male">&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <input type="radio" name="gender" id="gender" value="Female">&nbsp;Female</td> </tr> </h4>
+ <tr> <td> <input type="text" name="phone" id="phone" placeholder="Enter your phone number" required style="border:3px solid #7C70B8;"></td> </tr> 
+ <tr> <td> <input type="password" name="pass" id="pass" placeholder="Create a password" required style="border:3px solid #7C70B8;"></td> </tr> 
+ <tr>
+ <td><input type="submit" name="register" id="register" value="Complete Sign-Up" style="font-size:130%"></td> </tr>  
+ </table> 
+ </form>
+</div> 
+ </div>
+ </body> 
+ </html>

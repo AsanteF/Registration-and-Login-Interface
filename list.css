@@ -1,0 +1,129 @@
+#container
+{   width:100%;
+	height:170%;
+	background: #8779C2;
+	background:radial-gradient(#A292DB,#7367AF);
+	
+}
+
+#header
+{
+	background: #2a2a2a;
+	width:100%;
+	height:73px;
+	margin:auto;
+}
+
+#left_header{
+   float:left;
+   padding-top:20px;
+   padding-bottom:0px;
+   padding-left:140px;
+}
+
+#menu{
+	float:right;
+	padding-top:35px;
+    padding-right:130px;
+    font-family: Arial, Helvetica, sans-serif;
+	}
+#menu a{
+	color: #eee;
+	font-size: 16px;
+	}	
+
+#menu a:hover { background-color: #3399cc; }
+
+
+
+#search
+{
+  padding-left:159px;
+}
+
+h2
+{
+	color: #fff;
+	font-size: 2.5em;
+	padding-top:25px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-shadow: 1px 1px #000;
+}
+
+th,td
+{
+	color: #fff;
+	font-size: 1.4em;
+	margin: 0 0 .5em;
+	font-family: Cordia New, sans-serif;
+	text-shadow: 0.5px 0.5px #000;
+}
+
+table
+{
+	background-color: #6D61A9;
+	width:75%;
+	padding-left:20;
+	padding-right: 20;
+	padding-top:10;
+	padding-bottom:20;
+	table-layout:fixed;
+	background:linear-gradient(#6D61A9,#8174bc);
+	border-radius: 5px;
+}
+td {
+    
+    vertical-align: center;
+}
+input#register
+{
+	width:68px;
+	border:1px solid #8174BC;
+	padding:5px ;
+	cursor:pointer;
+	-moz-border-radius: 10px;
+	border-radius: 3px;
+	height:35px;
+	background:linear-gradient(#ffdd00,#ffaa00);
+ 	text-shadow: 2px 1px #FFFFFF;
+ 	color:#191919;
+ 	font-family: Arial, Helvetica, sans-serif;
+}
+
+input:not([type]), input[type="text"]
+{ 
+    font-size: 10pt; 
+    font-family: Arial; 
+	width: 290px;
+	height:35px;
+	padding-left: 5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+#viewlink {
+    display: block;
+    color: #ffffff;
+    background-color: 8174bc;
+    width: 55px;
+    text-align: center;
+    text-decoration: none;
+    border:2px solid #6D61A9;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    height:23px;
+    padding-bottom: 7px;
+}
+
+#viewlink a:hover, a:active {
+    background-color: #7A991A;
+}
+#msg
+{
+	width:100px;
+	background:#FFBD00;
+	border:1px solid #ffcc00;
+	border-radius: 5px;
+	height:43px;
+	padding:10px;
+}
