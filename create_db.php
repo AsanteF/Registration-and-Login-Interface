@@ -39,8 +39,7 @@ else if(!$query)
 {
 $submitted="Could not insert in table. ";	
 }
-else
-	$submitted="Database and Tables successfully created.\n";
+
 }
 ?>
 <div id="container">
@@ -49,11 +48,18 @@ else
 <img src="logo.png" height="42" width="187">
 </div> <!--left header end -->
 <div id="menu">
-<a href="login.php" style="text-decoration: none" >LOGIN</a>
+<!--<a href="login.php" style="text-decoration: none" >LOGIN</a> -->
 </div><!--menu header end -->
 </div><!--header end -->
 <div id="content" class="required">
-<?php if($submitted) { ?>
+<?php
+	session_start();
+	//unset($_SESSION['count']);
+	//session_destroy();
+
+    if(!$_SESSION['setup'])
+    {
+    if($submitted) { ?>
 <center><div id="msg"><center> <?php echo $submitted; }?> </center></div><br><br></center>
 <h2><center>Create Your Database</center><h2>
 <form method="post" action="">
@@ -67,6 +73,14 @@ else
 <td><input type="submit" name="register" id="register" value="Create" style="font-size:97%"></td> </tr>  
 </table> 
 </form>
+	<?php if(isset($_POST['register']))
+		  $_SESSION['setup'] = 1;} else {?>
+<center><div >
+<label id="name" >Database created!</label><table cellpadding="5" cellspacing="40"><tr>
+<td id="msg" align="center"><a href="login.php" style="text-decoration: none" >LOGIN</a></td>
+<td id="msg" align="center"><a href="registration.php" style="text-decoration: none" >REGISTER</a></td>
+</tr></table></div></center>
+	<?php } ?>
 </div> 
 </div>
 <?php

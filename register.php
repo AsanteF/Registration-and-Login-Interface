@@ -50,10 +50,9 @@
 	}
 	}else
 	{	
-		setcookie("name", $name );
-		setcookie("email", $email );
-		setcookie("phone", $phone );
-		setcookie("pass", $_POST['pass'] );
+		setcookie("nam", $name );
+		setcookie("mail", $email );
+		setcookie("phn", $phone );
 		header('Location: registration.php?status=Email already registered.');
 	}
 	?>

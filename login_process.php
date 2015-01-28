@@ -39,7 +39,6 @@
 	else
 	{
 		setcookie("username", $username );
-		setcookie("password", $_POST['password'] );
 		header('Location: login.php?status=Invalid Login Credentials.');
 	}
 	

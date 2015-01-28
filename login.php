@@ -44,7 +44,7 @@
 	</tr>
 	<tr>
 	<td>
-	 <input id="password" type="password" name="password" value="<?php echo $_COOKIE["password"]; setcookie ("password", "", time() - 3600); ?>" placeholder="Type in your password                                                     *" required style="border:5px solid #7C70B8;">
+	 <input id="password" type="password" name="password" placeholder="Type in your password                                                     *" required style="border:5px solid #7C70B8;">
 	</td>
 	</tr>
 	<tr>
