@@ -5,27 +5,29 @@
 </head> 
 <body>
 <?php
-if ( isset( $_POST['register'] ) ) 
+if (isset($_POST['register'])) 
 { 
 $uname = filter_var($_POST['uname'], FILTER_SANITIZE_STRING);
 $pass = filter_var($_POST['pass'], FILTER_SANITIZE_STRING);
 $dbname = filter_var($_POST['dbname'], FILTER_SANITIZE_STRING);
 $conn=mysql_connect('localhost',$uname,$pass);
-//if(!$conn)
-//{$submitted="Database Connection Failed";
-//}
-if(!$conn)
+
+/*if(!$conn)
 {die("Database Connection Failed".mysql_error());
-}
+}*/
 $sql =  'CREATE DATABASE '.$dbname;
 $retval = mysql_query( $sql, $conn );
-$select_db=mysql_select_db($dbname) or die(mysql_error());
+$select_db=mysql_select_db($dbname);
 $query = 'CREATE TABLE users (userid int(11) NOT NULL AUTO_INCREMENT,name varchar(50),email varchar(40) ,username varchar(30) ,gender varchar(20) ,phone varchar(20) ,password varchar(60),type_of_user varchar(30),PRIMARY KEY(userid))';
 
-$val = mysql_query( $query, $conn ) or die(mysql_error());
+$val = mysql_query( $query, $conn );
 $password=md5('innoraft');
 $query1 = mysql_query("INSERT INTO users(name,email,username,gender,phone,password,type_of_user)VALUES('sonam','shreyasingh28592@gmail.com','shreyasingh28592','Female','9876567654','$password','admin')",$conn); //Insert query
-if(!$retval)
+if(!$conn)
+{
+ $submitted="Database Connection Failed";
+}
+else if(!$retval)
 {
  $submitted='Could not create database.';
 }
@@ -43,7 +45,6 @@ $submitted="Could not insert in table. ";
 }
 else
 	$submitted="Database and Tables successfully created.\n";
-mysql_close($conn);
 }
 ?>
 <div id="container">
@@ -72,6 +73,6 @@ mysql_close($conn);
 </form>
 </div> 
 </div>
-
+<?php mysql_close($conn); ?>
 </body> 
 </html>
