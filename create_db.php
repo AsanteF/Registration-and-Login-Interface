@@ -11,10 +11,6 @@ $uname = filter_var($_POST['uname'], FILTER_SANITIZE_STRING);
 $pass = filter_var($_POST['pass'], FILTER_SANITIZE_STRING);
 $dbname = filter_var($_POST['dbname'], FILTER_SANITIZE_STRING);
 $conn=mysql_connect('localhost',$uname,$pass);
-
-/*if(!$conn)
-{die("Database Connection Failed".mysql_error());
-}*/
 $sql =  'CREATE DATABASE '.$dbname;
 $retval = mysql_query( $sql, $conn );
 $select_db=mysql_select_db($dbname);
@@ -65,7 +61,7 @@ else
 <tr> 
 <td><input type="text" name="uname" id="name" placeholder="Enter your mysql username                                                              *" required style="border:5px solid #7C70B8 ;">
 </td> </tr>        
-<tr> <td> <input type="password" name="pass" id="pass" placeholder="Enter your mysql password                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
+<tr> <td> <input type="password" name="pass" id="pass"  placeholder="Enter your mysql password                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
 <tr> <td> <input type="text" name="dbname" id="name" placeholder="Enter your database name                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
 <tr>
 <td><input type="submit" name="register" id="register" value="Create" style="font-size:97%"></td> </tr>  
@@ -73,6 +69,17 @@ else
 </form>
 </div> 
 </div>
-<?php mysql_close($conn); ?>
+<?php
+if(isset($_POST['register']))
+{ 
+$data1 = "<?php";
+$data2 = "$"."conn=mysql_connect('localhost','".$uname."','".$_POST['pass']."');";
+$data3 = "$"."select_db=mysql_select_db('".$dbname."');";
+$data4 = "?>";
+$data = array($data1,$data2,$data3,$data4);
+$filename = 'file://localhost/var/www/html/connect.php';
+file_put_contents($filename, join("\n",$data));
+}
+mysql_close($conn); ?>
 </body> 
 </html>

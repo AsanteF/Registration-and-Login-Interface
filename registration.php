@@ -56,6 +56,11 @@ $.post("register.php", {
 	?>
 </head> 
 <body>
+	<?php 
+	include('connect.php');
+	if(!$conn){
+	header("Location: create_db.php");}
+	?>
 <div id="container">
 <div id="header">
 <div id="left_header">

@@ -12,6 +12,8 @@
 <div id="menu">
 	<?php 
 	include 'connect.php'; //connect the connection page
+	if(!$conn){
+	header("Location: create_db.php");}
 	if(empty($_SESSION)) // if the session not yet started 
    		session_start();
 	if(isset($_SESSION['username'])) 

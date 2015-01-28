@@ -4,6 +4,8 @@
 
 	<?php
 	require('connect.php');
+	if(!$conn){
+	header("Location: create_db.php");}
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 	$parts = explode("@", $email);
@@ -41,7 +43,7 @@
 		// send email
 		if(mail($email,"Welcome Email",$msg)) $submitted = true;
 		if($submitted) header('Location: registration.php?status=Successfully Registered');
-		else header('Location: registration.php?status=Something went wrong. Please try again!');
+		else header('Location: registration.php?status=Sending confirmation email failed. Please try again!');
 	}else
 	{
 		die('Could not store data: ' . mysql_error());

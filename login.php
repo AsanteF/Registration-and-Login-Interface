@@ -3,6 +3,9 @@
 <title>Login Script</title>
 <link rel="stylesheet" type="text/css" href="signup.css">
 	<?php 
+	include('connect.php');
+	if(!$conn){
+	header("Location: create_db.php");}
 	session_start();
 	if(!(strcmp($_SESSION['count'],"double")))
 	{

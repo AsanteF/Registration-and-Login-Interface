@@ -5,6 +5,9 @@
 </head>
 <body>
 	<?php 
+	include('connect.php');
+	if(!$conn){
+	header("Location: create_db.php");}
 	if(empty($_SESSION)) // if the session not yet started 
    	session_start();
 
