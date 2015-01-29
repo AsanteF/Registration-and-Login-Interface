@@ -84,11 +84,11 @@ $.post("register.php", {
 <form method="post" action="register.php">
 <table border="0" align="center" cellspacing="10"> 
 <tr> 
-<td><input type="text" name="name" value="<?php echo $_COOKIE["nam"]; setcookie ("nam", "", time() - 3600); ?>" id="name" placeholder="Enter your name                                                              *" required style="border:5px solid #7C70B8 ;">
+<td><input type="text" name="name" value="<?php echo $_COOKIE["nam"]; setcookie ("nam", "", time() - 3600); ?>" id="nm" placeholder="Enter your name                                                              *" required style="border:5px solid #7C70B8 ;">
 </td> </tr>        
 <tr> <td> <input type="email" name="email" value="<?php echo $_COOKIE["mail"]; setcookie ("mail", "", time() - 3600); ?>" required id="email" placeholder="Enter your email                                                              *" style="border:5px solid #7C70B8;"></td> </tr> 
-<tr> <td><h4>Gender &nbsp;:&nbsp; &nbsp; &nbsp;&nbsp;<input type="radio" name="gender" id="gender" value="Male">&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" name="gender" id="gender" value="Female">&nbsp;Female</td> </tr> </h4>
+<tr> <td><h4>Gender &nbsp;:&nbsp; &nbsp; &nbsp;&nbsp;<input type="radio" name="gender" id="gender" value="Male" <?php echo ($_COOKIE['radio'] == 'Male') ? 'checked="checked"' : ''; setcookie ("radio", "", time() - 3600);?> />&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="gender" id="gender" value="Female" <?php echo ($_COOKIE['radio'] == 'Female') ? 'checked="checked"' : ''; setcookie ("radio", "", time() - 3600);?> >&nbsp;Female</td> </tr> </h4>
 <tr> <td> <input type="text" name="phone" id="phone" value="<?php echo $_COOKIE["phn"]; setcookie ("phn", "", time() - 3600); ?>" placeholder="Enter your phone number                                                 *" required style="border:5px solid #7C70B8;"></td> </tr> 
 <tr> <td> <input type="password" name="pass" id="pass" placeholder="Create a password                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
 <tr>

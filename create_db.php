@@ -65,10 +65,10 @@ $submitted="Could not insert in table. ";
 <form method="post" action="">
 <table border="0" align="center" cellspacing="10"> 
 <tr> 
-<td><input type="text" name="uname" id="name" placeholder="Enter your mysql username                                                              *" required style="border:5px solid #7C70B8 ;">
+<td><input type="text" name="uname" id="nm" placeholder="Enter your mysql username                                                              *" required style="border:5px solid #7C70B8 ;">
 </td> </tr>        
 <tr> <td> <input type="password" name="pass" id="pass"  placeholder="Enter your mysql password                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
-<tr> <td> <input type="text" name="dbname" id="name" placeholder="Enter your database name                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
+<tr> <td> <input type="text" name="dbname" id="nm" placeholder="Enter your database name                                                          *" required style="border:5px solid #7C70B8;"></td> </tr> 
 <tr>
 <td><input type="submit" name="register" id="register" value="Create" style="font-size:97%"></td> </tr>  
 </table> 

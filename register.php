@@ -53,6 +53,7 @@
 		setcookie("nam", $name );
 		setcookie("mail", $email );
 		setcookie("phn", $phone );
+		setcookie("radio", $gender );
 		header('Location: registration.php?status=Email already registered.');
 	}
 	?>
