@@ -19,7 +19,7 @@
 	if(isset($_SESSION['username'])) 
  		echo '<a href="logout.php" style="text-decoration: none" >LOGOUT</a>';
  	else
- 	    echo '<a href="login.php" style="text-decoration: none" >LOGIN</a>';
+ 	    echo '<a href="index.php" style="text-decoration: none" >LOGIN</a>';
  	?>
 </div><!--menu header end -->
 </div><!--header end -->
