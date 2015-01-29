@@ -19,6 +19,7 @@ $query = 'CREATE TABLE users (userid int(11) NOT NULL AUTO_INCREMENT,name varcha
 $val = mysql_query( $query, $conn );
 $password=md5('innoraft');
 $query1 = mysql_query("INSERT INTO users(name,email,username,gender,phone,password,type_of_user)VALUES('sonam','shreyasingh28592@gmail.com','shreyasingh28592','Female','9876567654','$password','admin')",$conn); //Insert query
+
 if(!$conn)
 {
  $submitted="Database Connection Failed";
@@ -54,7 +55,7 @@ $submitted="Could not insert in table. ";
 <div id="content" class="required">
 <?php
 	session_start();
-	//unset($_SESSION['count']);
+	//unset($_SESSION['setup']);
 	//session_destroy();
 
     if(!$_SESSION['setup'])
@@ -62,7 +63,11 @@ $submitted="Could not insert in table. ";
     if($submitted) { ?>
 <center><div id="msg"><center> <?php echo $submitted; }?> </center></div><br><br></center>
 <h2><center>Create Your Database</center><h2>
-<form method="post" action="">
+<form method="post" action="#">
+	<?php 
+			 session_start();
+		  $_SESSION['setup'] = 1;
+	?>
 <table border="0" align="center" cellspacing="10"> 
 <tr> 
 <td><input type="text" name="uname" id="nm" placeholder="Enter your mysql username                                                              *" required style="border:5px solid #7C70B8 ;">
@@ -73,8 +78,7 @@ $submitted="Could not insert in table. ";
 <td><input type="submit" name="register" id="register" value="Create" style="font-size:97%"></td> </tr>  
 </table> 
 </form>
-	<?php if(isset($_POST['register']))
-		  $_SESSION['setup'] = 1;} else {?>
+	<?php } else { ?>
 <center><div >
 <label id="name" >Database created!</label><table cellpadding="5" cellspacing="40"><tr>
 <td id="msg" align="center"><a href="login.php" style="text-decoration: none" >LOGIN</a></td>
