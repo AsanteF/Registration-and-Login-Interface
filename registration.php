@@ -67,7 +67,7 @@ $.post("register.php", {
 <img src="logo.png" height="42" width="187">
 </div> <!--left header end -->
 <div id="menu">
-<a href="login.php" style="text-decoration: none" >LOGIN</a>
+<a href="index.php" style="text-decoration: none" >LOGIN</a>
 </div><!--menu header end -->
 </div><!--header end -->
 <div id="content" class="required">

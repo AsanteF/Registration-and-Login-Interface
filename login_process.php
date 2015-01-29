@@ -39,7 +39,7 @@
 	else
 	{
 		setcookie("username", $username );
-		header('Location: login.php?status=Invalid Login Credentials.');
+		header('Location: index.php?status=Invalid Login Credentials.');
 	}
 	
 	?>

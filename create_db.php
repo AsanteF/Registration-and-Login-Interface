@@ -48,26 +48,16 @@ $submitted="Could not insert in table. ";
 <div id="left_header">
 <img src="logo.png" height="42" width="187">
 </div> <!--left header end -->
-<div id="menu">
-<!--<a href="login.php" style="text-decoration: none" >LOGIN</a> -->
-</div><!--menu header end -->
 </div><!--header end -->
 <div id="content" class="required">
-<?php
-	session_start();
-	//unset($_SESSION['setup']);
-	//session_destroy();
-
-    if(!$_SESSION['setup'])
+	<?php
+	//setcookie ("setup", "", time() - 3600);
+    if(!$_COOKIE["setup"])
     {
     if($submitted) { ?>
 <center><div id="msg"><center> <?php echo $submitted; }?> </center></div><br><br></center>
 <h2><center>Create Your Database</center><h2>
 <form method="post" action="#">
-	<?php 
-			 session_start();
-		  $_SESSION['setup'] = 1;
-	?>
 <table border="0" align="center" cellspacing="10"> 
 <tr> 
 <td><input type="text" name="uname" id="nm" placeholder="Enter your mysql username                                                              *" required style="border:5px solid #7C70B8 ;">
@@ -77,11 +67,16 @@ $submitted="Could not insert in table. ";
 <tr>
 <td><input type="submit" name="register" id="register" value="Create" style="font-size:97%"></td> </tr>  
 </table> 
+	<?php 
+			 //session_start();
+		 // $_SESSION['setup'] = 1;
+	setcookie("setup", 1 );
+	?>
 </form>
 	<?php } else { ?>
 <center><div >
 <label id="name" >Database created!</label><table cellpadding="5" cellspacing="40"><tr>
-<td id="msg" align="center"><a href="login.php" style="text-decoration: none" >LOGIN</a></td>
+<td id="msg" align="center"><a href="index.php" style="text-decoration: none" >LOGIN</a></td>
 <td id="msg" align="center"><a href="registration.php" style="text-decoration: none" >REGISTER</a></td>
 </tr></table></div></center>
 	<?php } ?>
